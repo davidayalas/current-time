@@ -88,7 +88,7 @@ function toArray(obj){
 */
 function doGet(e) {
   var tz = 0,offset="+0000",cb="", millisc = 3600000,tzname="UTC";
-
+isDST()
   //Parameters management
   if(e && e.parameters && Object.keys(e.parameters).length>0){
     if(e.parameters.callback){//callback, if exists
@@ -117,7 +117,7 @@ function doGet(e) {
         offset = e.parameters.hours;
     }
   }
-  if(tz){
+  if(!isNaN(tz)){
     var r = getDate(tz,offset);
     r["timezone"] = tzname;
     //Logger.log(JSON.stringify(r));

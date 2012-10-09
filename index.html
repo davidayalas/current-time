@@ -11,11 +11,12 @@
     <div id="container">
       <h1>JSON service to get the current time of a timezone</h1>
       <form action="#" method="get">
-        <label for="tz">Select your timezone</label> <select name="tz" id="tz">
+        <label for="tz">Select your timezone</label> 
+        <select name="tz" id="tz">
           <? for(var k in data){ ?>     
           <option value="<?=data[k]?>"><?= data[k] ?></option>
           <? } ?>
-</select>
+        </select>
         <input type="submit" value="&gt;" />
       </form>
       
