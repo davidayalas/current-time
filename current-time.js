@@ -1,6 +1,7 @@
 /*
 * Get month name
 *
+* @param {Number} i
 * @return {String}
 */
 function getMonthName(i){
@@ -10,6 +11,7 @@ function getMonthName(i){
 /*
 * Get day of week name
 *
+* @param {Number} i
 * @return {String}
 */
 function getDayName(i){
