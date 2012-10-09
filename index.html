@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Timezones current time</title>
+    <style>
+      #container{margin-left:1em;font-family:arial,verdana,helvetica}
+    </style>
+  </head>  
+  
+  <body>
+    <div id="container">
+      <h1>JSON service to get the current time of a timezone</h1>
+      <form action="#" method="get">
+        <label for="tz">Select your timezone</label> <select name="tz" id="tz">
+          <? for(var k in data){ ?>     
+          <option value="<?=data[k]?>"><?= data[k] ?></option>
+          <? } ?>
+</select>
+        <input type="submit" value="&gt;" />
+      </form>
+      
+      <h2>API usage</h2>
+      <ul>
+        <li> url: 
+          <ul>
+            <li><a href="http://tiny.cc/currenttime">http://tiny.cc/currenttime</a><br /><br /></li>
+          </ul>
+        </li>  
+        <li> get all timezones: 
+          <ul>
+            <li><a href="https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all">https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all</a><br /><br /></li> 
+          </ul>
+        </li>  
+        <li> get time of a timezone: 
+          <ul>
+            <li><a href="https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid">https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid</a><br /><br /></li> 
+          </ul>
+        </li>  
+        <li> callback: 
+          <ul>
+            <li><a href="https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid&amp;callback=f">https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid&amp;callback=f</a><br /><br /></li>
+            <li><a href="https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all&amp;callback=f">https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all&amp;callback=f</a><br /><br /></li>
+          </ul>
+        </li>  
+      </ul>
+    
+    </div>
+  </body>  
+</html>  
