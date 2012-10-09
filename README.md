@@ -1,8 +1,5 @@
-
 JSON timezone/time API usage
 =============================
-
-
 
 * url:
 	- [http://tiny.cc/currenttime](http://tiny.cc/currenttime)<br />  
