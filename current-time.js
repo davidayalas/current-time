@@ -106,7 +106,7 @@ function doGet(e) {
       if(tzname=="all"){
           return ContentService.createTextOutput((cb!=""?cb+"(":"")+JSON.stringify(getTimeZones())+(cb!=""?")":"")).setMimeType(ContentService.MimeType.JSON);;
       }
-      tz = getTimeZones()[e.parameters.tz];
+      tz = getTimeZones(e.parameters.tz);
       if(tz){
         offset = isDST() ? tz.utc_dst : tz.utc;
         tz = isDST() ? tz.utc_dst_v : tz.utc_v;
@@ -117,11 +117,13 @@ function doGet(e) {
         offset = e.parameters.hours;
     }
   }
-  
-  var r = getDate(tz,offset);
-  r["timezone"] = tzname;
-  //Logger.log(JSON.stringify(r));
-  return ContentService.createTextOutput((cb!=""?cb+"(":"")+JSON.stringify(r)+(cb!=""?")":"")).setMimeType(ContentService.MimeType.JSON);
+  if(tz){
+    var r = getDate(tz,offset);
+    r["timezone"] = tzname;
+    //Logger.log(JSON.stringify(r));
+    return ContentService.createTextOutput((cb!=""?cb+"(":"")+JSON.stringify(r)+(cb!=""?")":"")).setMimeType(ContentService.MimeType.JSON);
+  }
+  return ContentService.createTextOutput((cb!=""?cb+"(":"")+JSON.stringify({'status':'error'})+(cb!=""?")":"")).setMimeType(ContentService.MimeType.JSON);
 }
 
 /*
