@@ -10,46 +10,21 @@ JSON timezone/time API usage
 
 * get all timezones:
 
-	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?
-*
-*tz=all
-*
-*](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all)<br />  
+	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?**tz=all**](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all)<br />  
 
 
 * get time of a timezone:
-	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?
-*
-*tz
-*
-*=Europe/Madrid](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid)<br />  
+	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?**tz**=Europe/Madrid](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid)<br />  
 
 
 * callback:
-	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?
-*
-*tz
-*
-*=Europe/Madrid&
-*
-*callback
-*
-*=f](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid&callback=f)<br />  
+	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?**tz**=Europe/Madrid&**callback**=f](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid&callback=f)<br />  
 
-	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?
-*
-*tz=all
-*
-*&
-*
-*callback
-*
-*=f](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all&callback=f)  
+	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?**tz=all**&**callback**=f](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all&callback=f)  
 
 
 Timezone list
 --------------
-
 
 * <a href="https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?tz=Africa/Abidjan">Africa/Abidjan</a> 
 * <a href="https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?tz=Africa/Accra">Africa/Accra</a> 
