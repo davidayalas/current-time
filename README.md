@@ -1,20 +1,23 @@
 JSON timezone/time API usage
 =============================
 
-* url:
-	- [http://tiny.cc/currenttime](http://tiny.cc/currenttime)<br />  
+### url
 
-* get all timezones:
+>	[http://tiny.cc/currenttime](http://tiny.cc/currenttime)<br />  
 
-	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=**all**](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all)<br />  
+### get all timezones
 
-* get time of a timezone:
-	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?**tz**=Europe/Madrid](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid)<br />  
+>	[https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?<br />tz=**all**](https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?tz=all)<br />  
 
-* callback:
-	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?**tz**=Europe/Madrid&**callback**=f](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=Europe/Madrid&callback=f)<br />    
+### get time of a timezone
 
-	- [https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?**tz**=all&**callback**=f](https://script.google.com/macros/s/AKfycbxV_jj5blAvD9PKy3TSRZ5jNE-QAUiVWnQkuTss42w/exec?tz=all&callback=f)  
+>	[https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?<br />**tz**=Europe/Madrid](https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?tz=Europe/Madrid)<br />  
+
+### callback
+
+>	[https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?<br />**tz**=Europe/Madrid&**callback**=f](https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?tz=Europe/Madrid&callback=f)<br />    
+
+>	[https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?<br />**tz**=all&**callback**=f](https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?tz=all&callback=f)  
 
 
 Timezone list
