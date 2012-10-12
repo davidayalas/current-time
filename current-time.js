@@ -19,15 +19,13 @@ function getDayName(i){
 }
 
 /*
-* Checks if timezone is in Daylight Saving Time
+* Get day index
 *
-* @return {Boolean}
+* @param {String} day
+* @return {Number}
 */
-function isDST(){
-  var d = new Date();
-  var jan = new Date(d.getFullYear(), 0, 1);
-  var jul = new Date(d.getFullYear(), 6, 1);
-  return d.getTimezoneOffset() < Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+function getDayIndex(day){
+  return {'sun':0,'mon':1,'tue':2,'wed':3,'thu':4,'fri':5,'sat':6}[day.toLowerCase()];
 }
 
 /*
@@ -43,30 +41,30 @@ function fillZeros(num){
 /*
 * Get date and return an object with all props
 *
-* @param {Number} tz
-*         millis to add to the current date (+ or -)       
-* @param {String} offset
-*         for full date
+* @param {String} tz
 * @return {String}
 */
-function getDate(tz,offset){
-  var d = new Date();
-  d.setTime(d.getTime()+tz);
-    
-  var o = {};
-  o["dayofweek"] = d.getUTCDay();
-  o["dayofweekName"] = getDayName(d.getUTCDay());
-  o["day"] = d.getUTCDate();
-  o["month"] = d.getUTCMonth()+1;
-  o["monthName"] = getMonthName(d.getUTCMonth());
-  o["year"] = d.getUTCFullYear();
-  o["hours"] = d.getUTCHours();
-  o["minutes"] = d.getUTCMinutes();
-  o["seconds"] = d.getUTCSeconds();
-  o["millis"] = d.getUTCMilliseconds();
-  //datetime: "Tue, 09 Oct 2012 14:42:01 +0200",
-  o["fulldate"] = o.dayofweekName.slice(0,3) + ", " + fillZeros(o.day) + " " + o.monthName.slice(0,3) + " " + o.year + " " + fillZeros(o.hours) + ":" + fillZeros(o.minutes) + ":" + fillZeros(o.seconds) + " " + offset;   
-  return o;
+function getDate(tz){
+  var dstr = Utilities.formatDate(new Date(), tz, "E yyyy-MM-dd'T'HH:mm:ss:S Z");
+  var a = /(.{3})\s(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}):(\d{3})\s(.*)/.exec(dstr); 
+
+  if(a.length>0){
+    var o = {};
+    o["dayofweek"] = getDayIndex(a[1]);
+    o["dayofweekName"] = getDayName(o.dayofweek);
+    o["day"] = a[4]*1;
+    o["month"] = a[3]*1;
+    o["monthName"] = getMonthName(o.month);
+    o["year"] = a[2]*1;
+    o["hours"] = a[5]*1;
+    o["minutes"] = a[6]*1;
+    o["seconds"] = a[7]*1;
+    o["millis"] = a[8]*1;
+    //datetime: "Tue, 09 Oct 2012 14:42:01 +0200"
+    o["fulldate"] = a[1] + ", " + fillZeros(o.day) + " " + o.monthName.slice(0,3) + " " + o.year + " " + fillZeros(o.hours) + ":" + fillZeros(o.minutes) + ":" + fillZeros(o.seconds) + " " + a[9];
+    return o;
+  }
+  return null;
 }  
 
 /*
@@ -86,8 +84,8 @@ function toArray(obj){
 /*
 * Get and process web app request
 */
-function doGet(e) {
-  var tz = 0,offset="+0000",cb="", millisc = 3600000,tzname="UTC";
+function doGet(e){
+  var tz = "UTC",cb="", millisc = 3600000,tzname="UTC";
 
   //Parameters management
   if(e && e.parameters && Object.keys(e.parameters).length>0){
@@ -106,21 +104,13 @@ function doGet(e) {
       if(tzname=="all"){
           return ContentService.createTextOutput((cb!=""?cb+"(":"")+JSON.stringify(getTimeZones())+(cb!=""?")":"")).setMimeType(ContentService.MimeType.JSON);;
       }
-      tz = getTimeZones(e.parameters.tz);
-      if(tz){
-        offset = isDST() ? tz.utc_dst : tz.utc;
-        tz = isDST() ? tz.utc_dst_v : tz.utc_v;
-        tz = tz*millisc;
-      }
-    }else if(e.parameters.hours){//manual force of +-hours
-        tz = e.parameters.hours*millisc;
-        offset = e.parameters.hours;
     }
   }
-  if(!isNaN(tz)){
-    var r = getDate(tz,offset);
+  
+  var r = getDate(tzname);
+  if(r){
     r["timezone"] = tzname;
-    //Logger.log(JSON.stringify(r));
+    r["status"] = "ok";
     return ContentService.createTextOutput((cb!=""?cb+"(":"")+JSON.stringify(r)+(cb!=""?")":"")).setMimeType(ContentService.MimeType.JSON);
   }
   return ContentService.createTextOutput((cb!=""?cb+"(":"")+JSON.stringify({'status':'error'})+(cb!=""?")":"")).setMimeType(ContentService.MimeType.JSON);
