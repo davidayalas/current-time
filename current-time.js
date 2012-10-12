@@ -110,7 +110,7 @@ function doGet(e){
   
   var r = getDate(tzname);
   var retries = 0;
-  while(!r && retries<3){//3 retries, someties formatDate in getdata fails...
+  while(!r && retries<3){//3 retries, sometimes formatDate in getdata fails...
     Utilities.sleep(100);
     r = getDate(tzname);
   }
