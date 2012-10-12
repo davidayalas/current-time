@@ -55,7 +55,7 @@ function getDate(tz){
     o["dayofweekName"] = getDayName(o.dayofweek);
     o["day"] = a[4]*1;
     o["month"] = a[3]*1;
-    o["monthName"] = getMonthName(o.month);
+    o["monthName"] = getMonthName(o.month-1);
     o["year"] = a[2]*1;
     o["hours"] = a[5]*1;
     o["minutes"] = a[6]*1;
