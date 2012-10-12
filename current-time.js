@@ -86,7 +86,7 @@ function toArray(obj){
 * Get and process web app request
 */
 function doGet(e){
-  var tz = "UTC",cb="", millisc = 3600000,tzname="UTC";
+  var cb="", millisc = 3600000,tzname="UTC";
 
   //Parameters management
   if(e && e.parameters && Object.keys(e.parameters).length>0){
@@ -110,11 +110,13 @@ function doGet(e){
   
   var r = getDate(tzname);
   var retries = 0;
+
   while(!r && retries<3){//3 retries, sometimes formatDate in getdata fails...
     Utilities.sleep(100);
     r = getDate(tzname);
+    retries++;
   }
-  
+    
   if(r){
     r["timezone"] = tzname;
     r["status"] = "ok";
