@@ -109,8 +109,9 @@ function doGet(e){
   }
   
   var r = getDate(tzname);
-  
-  if(!r){//one retry, someties dateformat in getdata fails...
+  var retries = 0;
+  while(!r && retries<3){//3 retries, someties formatDate in getdata fails...
+    Utilities.sleep(100);
     r = getDate(tzname);
   }
   
