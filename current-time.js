@@ -48,7 +48,7 @@ function getDate(tz){
   var dstr = Utilities.formatDate(new Date(), tz, "E yyyy-MM-dd'T'HH:mm:ss:S Z");
   var a = /(.{3})\s(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}):(\d{3})\s(.*)/.exec(dstr); 
 
-  if(a.length>0){
+  if(a && a.length>0){
     var o = {};
     o["dayofweek"] = getDayIndex(a[1]);
     o["dayofweekName"] = getDayName(o.dayofweek);
