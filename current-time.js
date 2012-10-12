@@ -45,9 +45,10 @@ function fillZeros(num){
 * @return {String}
 */
 function getDate(tz){
-  var dstr = Utilities.formatDate(new Date(), tz, "E yyyy-MM-dd'T'HH:mm:ss:S Z");
-  var a = /(.{3})\s(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}):(\d{3})\s(.*)/.exec(dstr); 
-
+  var dateFormat = "E yyyy-MM-dd'T'HH:mm:ss:S Z";
+  var re = /(.{3})\s(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}):(\d{3})\s(.*)/;
+  var a = re.exec(Utilities.formatDate(new Date(), tz, dateFormat)); 
+  
   if(a && a.length>0){
     var o = {};
     o["dayofweek"] = getDayIndex(a[1]);
@@ -108,6 +109,11 @@ function doGet(e){
   }
   
   var r = getDate(tzname);
+  
+  if(!r){//one retry, someties dateformat in getdata fails...
+    r = getDate(tzname);
+  }
+  
   if(r){
     r["timezone"] = tzname;
     r["status"] = "ok";
